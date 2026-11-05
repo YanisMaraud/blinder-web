@@ -28,6 +28,7 @@ h1 {
   gap: 5px;
 }
 
-#playlistId {
-  flex-grow: 1;
+#playlistIdEntry {
+  field-sizing: content;
+  min-width: 250px;
 }
