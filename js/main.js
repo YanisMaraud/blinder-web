@@ -1,13 +1,15 @@
 const gameForm = document.querySelector("#gameForm");
 const playlistIdEntry = document.querySelector("#playlistIdEntry");
 
+function errorID(json) {}
+
 gameForm.addEventListener("submit", function (event) {
   event.preventDefault(); // Empêche le rechargement de la page et donc la réinitialisation des variables
-  playlistId = playlistIdEntry.value;
+  const playlistId = playlistIdEntry.value;
 
-  const title = document.querySelector("h1");
-  title.textContent = "Partie en cours";
-
-  // Suppression du formulaire pendant la partie
-  gameForm.remove();
+  // Création du script pour avoir le fichier json de la partie
+  let scriptJSON = document.createElement("script");
+  scriptJSON.setAttribute("id", "scriptJSON");
+  scriptJSON.setAttribute("src", "https://api.deezer.com/playlist/" + playlistId + "?output=jsonp&callback=errorID");
+  document.body.appendChild(scriptJSON);
 });
